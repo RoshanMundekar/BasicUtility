@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+<!-- title -->
+{% block title %}Index{% endblock %}
+
+<!-- css -->
+{% block css %}
+<style type="text/css">
+  button{
+    margin:10px 0px 10px;
+  }
+</style>
+{% endblock %}
+
+<!-- body -->
+{% block body %}
+
+
+<form action="/analyzed" method="GET">
+  <div class="form-group">
+    <h3><label for="Textarea1">Enter text here to analyzed :</label></h3>
+    <textarea class="form-control" id="Textarea1" name = "Text" rows="5"></textarea>
+  </div> 
+
+  <!-- switch1 -->
+  <div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" name ="Capitalize" id="customSwitch1">
+    <label class="custom-control-label" for="customSwitch1">Capitalize</label>
+  </div>
+
+  <!-- switch2 -->
+  <div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" name ="Uppercase" id="customSwitch2">
+    <label class="custom-control-label" for="customSwitch2">Uppercase</label>
+  </div>
+
+  <!-- switch3 -->
+  <div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" name ="lowercase" id="customSwitch3">
+    <label class="custom-control-label" for="customSwitch3">Lowercase</label>
+  </div>
+
+  <!-- switch4 -->
+  <div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" name ="removepunc" id="customSwitch4">
+    <label class="custom-control-label" for="customSwitch4">Remove Punctuation</label>
+  </div>
+
+  <!-- switch5 -->
+  <div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" name ="remNewLine" id="customSwitch5">
+    <label class="custom-control-label" for="customSwitch5">Remove New Line</label>
+  </div>
+
+  <!-- switch6 -->
+  <div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" name ="remSpace" id="customSwitch6">
+    <label class="custom-control-label" for="customSwitch6">Remove Space</label>
+  </div>
+
+  <!-- switch7 -->
+  <div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" name ="remExtraSpace" id="customSwitch7">
+    <label class="custom-control-label" for="customSwitch7">Remove Extra Space</label>
+  </div>
+
+  <!-- switch8 -->
+  <div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" name ="charCount" id="customSwitch8">
+    <label class="custom-control-label" for="customSwitch8">Count Characters</label>
+  </div>
+
+  <!-- button -->
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+<!-- analyzed text output -->
+<h3>Analyzed Text :</h3>
+<div class="jumbotron">
+  <p class = "lead">
+
+  {{analyzed}}
+
+  </p>
+</div>
+{% endblock %}

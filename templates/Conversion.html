@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}EMI Calculator{% endblock %}
+
+{% block css %}
+<style type="text/css">
+   button{
+       margin: 20px 0px 20px 0px;
+   }
+   .decInput{
+       margin: 50px 0px 50px 0px;
+   }
+</style>
+{% endblock %}
+{% block body %}
+
+<form action="/convert" method="GET">
+
+    <div class="input-group input-group-lg decInput">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-lg">Decimal</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Sizing example input" name="number" placeholder="Enter here..." aria-describedby="inputGroup-sizing-lg">
+    </div>
+    <!-- switch1 -->
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" name ="binary" id="customSwitch1">
+      <label class="custom-control-label" for="customSwitch1">Binary</label>
+    </div>
+  
+    <!-- switch2 -->
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" name ="octal" id="customSwitch2">
+      <label class="custom-control-label" for="customSwitch2">Octal</label>
+    </div>
+  
+    <!-- switch3 -->
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" name ="hexadecimal" id="customSwitch3">
+      <label class="custom-control-label" for="customSwitch3">Hexadecimal</label>
+    </div>
+  
+    <!-- button -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+  
+  </form>
+  <!-- analyzed text output -->
+  <h3>Conversion result :</h3>
+  <div class="jumbotron">
+    <p class = "lead">
+    <h4>{{conversion}} :</h4>
+    <h5>{{converted}}</h5>   
+  
+    </p>
+  </div>
+  {% endblock %}

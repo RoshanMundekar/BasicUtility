@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}about us{% endblock %}
+{% block css %}
+<style type="text/css">
+    .about{
+        margin-top: 40px;
+        height: 500px;
+    }
+    .logo{
+
+        text-align: center;
+        
+    }
+    h2{
+        margin-left: 10px;
+    }
+    h3{
+        margin: 20px;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<div class="jumbotron jumbotron-fluid about">
+    <div class="container logo">
+          <img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" width="80" height="80" class="d-inline-block align-top" alt="logo">
+      <h2>BasicUT</h2>
+      <h3>
+          BasicUT is basic utilty website that integrated basic utility like calculator, conversion & text manupulation together.
+          The user can used in single website to make task easier without going to specific site or search on internet.
+      </h3>
+    </div>
+  </div>
+
+{% endblock %}

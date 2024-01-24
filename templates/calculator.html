@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}Calculator{% endblock %}
+
+{% block css %} 
+<style type="text/css">
+    .table{
+        width: 40%;
+        margin-top: 10px;
+    }
+    caption{
+        caption-side: top;
+        text-align: center;
+    }
+    input{
+        text-align: right;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-dark " align="center">
+            <caption><h2>Calculator</h2></caption>
+                <tr>
+                    <td colspan="4"><input type="text" class="form-control form-control-lg" name = "screen" id="screen"></td>
+                </tr>
+                <tr>
+                    <td><button  class="btn btn-secondary btn-lg btn-block">(</button></td>
+                    <td><button  class="btn btn-secondary btn-lg btn-block">)</button></td>
+                    <td><button  class="btn btn-warning btn-lg btn-block">C</button></td>
+                    <td><button  class="btn btn-secondary btn-lg btn-block">%</button></td>
+                    
+                    
+                </tr>
+                <tr>
+                    <td><button  class="btn btn-secondary btn-lg btn-block">7</button></td>
+                    <td><button  class="btn btn-secondary btn-lg btn-block">8</button></td>
+                    <td><button  class="btn btn-secondary btn-lg btn-block">9</button></td>
+                    <td><button  class="btn btn-secondary btn-lg btn-block">X</button></td>
+                    
+                </tr>
+                <tr>
+                    <td><button  class="btn btn-secondary btn-lg btn-block">4</button></td>
+                    <td><button  class="btn btn-secondary btn-lg btn-block">5</button></td>
+                    <td><button  class="btn btn-secondary btn-lg btn-block">6</button></td>
+                    <td><button  class="btn btn-secondary btn-lg btn-block" style="font-weight: bold;">+</button></td>
+                    
+                </tr>
+                <tr>
+                    <td><button  class="btn btn-secondary btn-lg btn-block">1</button></td>
+                    <td><button  class="btn btn-secondary btn-lg btn-block">2</button></td>
+                    <td><button  class="btn btn-secondary btn-lg btn-block">3</button></td>
+                    <td><button  class="btn btn-secondary btn-lg btn-block" style="font-weight: bold;">-</button></td>
+                </tr>
+                <tr>
+                    <td><button  class="btn btn-secondary btn-lg btn-block">0</button></td>
+                    <td><button  class="btn btn-secondary btn-lg btn-block" style="font-weight: bold;">.</button></td>
+                    <td><button  class="btn btn-secondary btn-lg btn-block">/</button></td>
+                    <td><button  class="btn btn-success btn-lg btn-block" style="font-weight: bold;">=</button></td>
+                </tr>
+    </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+let screen = document.getElementById('screen');
+buttons = document.querySelectorAll('button');
+let screenValue = '';
+for (item of buttons) {
+    item.addEventListener('click', (e) => {
+        buttonText = e.target.innerText;
+        console.log('Button text is ', buttonText);
+        if (buttonText == 'X') {
+            buttonText = '*';
+            screenValue += buttonText ;
+            screen.value = screenValue;
+        }
+        else if (buttonText == 'C') {
+            screenValue = "";
+            screen.value = screenValue;
+        }
+        else if (buttonText == '=') {
+            screen.value = eval(screenValue);
+        }
+        else {
+            screenValue += buttonText;
+            screen.value = screenValue;
+        }
+
+    })
+}
+</script>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
